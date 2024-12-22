@@ -5,7 +5,6 @@ pipeline {
   }
   stages {
     stage('hello') {
-      W
       steps {
        echo 'Hello'
       }
