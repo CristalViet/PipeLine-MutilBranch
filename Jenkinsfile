@@ -1,15 +1,23 @@
 pipeline {
-  agent {label 'linux'}
+  agent any
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   stages {
+    stage('hello') {
+      W
+      steps {
+       echo 'Hello'
+      }
+    }
     stage('cat README') {
-      When {
+      when {
         branch "fix-*"
       }
       steps {
-        sh '''cat README.md'''
+        sh '''
+        cat README.md
+        '''
       }
     }
   }
